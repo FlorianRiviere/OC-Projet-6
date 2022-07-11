@@ -11,7 +11,7 @@ mongoose
     "mongodb+srv://FlorianRiviere:4r7CY8riOlq6wSZb@cluster0.ftbrp.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
-    console.log("connexion success");
+    console.log("Connexion to MongoDB succeeded");
   })
   .catch((error) => {
     console.log(error);

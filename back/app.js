@@ -1,16 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
+const helmet = require("helmet");
+require("dotenv").config();
 
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauces");
 
-const path = require("path");
-const helmet = require("helmet");
-
 mongoose
-  .connect(
-    "mongodb+srv://FlorianRiviere:4r7CY8riOlq6wSZb@cluster0.ftbrp.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.SECRET_MDB)
   .then(() => {
     console.log("Connexion to MongoDB succeeded");
   })
@@ -39,9 +37,7 @@ app.use(express.json());
 app.use(helmet());
 
 app.use("/api/auth", userRoutes);
-
 app.use("/api/sauces", sauceRoutes);
-
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 module.exports = app;

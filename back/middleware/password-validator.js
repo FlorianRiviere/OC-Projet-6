@@ -7,7 +7,7 @@ const passwordSchema = new passwordValidator();
 
 passwordSchema
   .is()
-  .min(5, "min") // Minimum length 5
+  .min(5) // Minimum length 5
   .is()
   .max(100) // Maximum length 100
   .has()
